@@ -11,9 +11,11 @@
   },
   "default_locale": "en",
   "background": {
-    "page": "src/bg/background.html",
+    // "page": "src/bg/background.html",
+    "scripts": ["src/bg/webgazer.js", "src/bg/background.js"],
     "persistent": true
   },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "options_page": "src/options_custom/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
@@ -44,7 +46,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "http://*/*",
+          "https://*/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -52,9 +55,11 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "http://*/*",
+          "https://*/*"
       ],
       "js": [
+        // "src/webgazer.js",
         "src/inject/inject.js"
       ]
     }
