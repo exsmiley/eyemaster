@@ -13,14 +13,15 @@ chrome.extension.sendMessage({}, function(response) {
 });
 
 var mouseDown = 0;
-document.body.onmousedown = function() { 
+document.body.addEventListener('mousedown', function() { 
     mouseDown = 1;
     console.log('mouse down');
-}
-document.body.onmouseup = function() {
+});
+
+document.body.addEventListener('mouseup', function() {
     mouseDown = 0;
     console.log('mouse up');
-}
+});
 
 var hasLoaded = false;
 
