@@ -23,7 +23,7 @@ window.addEventListener("load", function() {
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
-        	openNewTab();
+        	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
