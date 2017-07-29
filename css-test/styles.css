@@ -10,7 +10,7 @@
 .quadrant-text {
   font-weight: bold;
   font-size: 32px;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .top    { height: 50%; top:    0; }
 .bottom { height: 50%; bottom: 0; }
