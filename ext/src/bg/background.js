@@ -13,7 +13,7 @@
 //   });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if(request === "newTab") {
+  if(request.action === "newTab") {
     chrome.tabs.create({})
   }
 });

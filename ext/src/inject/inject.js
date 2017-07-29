@@ -23,7 +23,7 @@ window.addEventListener("load", function() {
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
-        	// openNewTab();
+        	openNewTab();
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
