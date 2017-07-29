@@ -1,11 +1,10 @@
 function onBlink() {
-  var selected = $.find(".selected")[0].id
-  selectedArray = ["one", "two", "three", "four"]
-  $(".selected").removeClass("selected")
-  for (item in selectedArray) {
-    if (selectedArray[item] === selected) {
-      $("." + selectedArray[item + 1]).addClass("selected")
-    }
+  var selected = $(".selected").removeClass("selected")
+  if (selected.next() && selected.next().length) {
+    selected.next().addClass("selected")
+  }
+  else {
+    selected.siblings(":first").addClass("selected")
   }
 }
 
