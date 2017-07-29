@@ -14,7 +14,7 @@ chrome.extension.sendMessage({}, function(response) {
 
 var hasLoaded = false;
 
-window.onload = function() {
+window.addEventListener("load", function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
         .setGazeListener(function(data, clock) {
@@ -61,6 +61,7 @@ window.onload = function() {
             if (cl.getCurrentPosition()) {
                 cl.draw(overlay);
             }
+            console.log("derp")
         }
         drawLoop();
     };
@@ -73,19 +74,19 @@ window.onload = function() {
         }
     }
     setTimeout(checkIfReady,100);
-};
+}, false);
 
 
-window.focus = function() {
+window.addEventListener("focus", function() {
 	if(hasLoaded) {
 		webgazer.resume()
 	}
-}
+}, false);
 
-window.onblur = function() {
+window.addEventListener("blur", function() {
 	hasLoaded = true;
 	webgazer.pause()
-}
+}, false);
 
 // window.onbeforeunload = function() {
 // 	webgazer.end()
