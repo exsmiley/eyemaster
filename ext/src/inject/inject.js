@@ -108,6 +108,6 @@ window.addEventListener("blur", function() {
 	webgazer.pause()
 }, false);
 
-// window.onbeforeunload = function() {
-// 	webgazer.end()
-// }
+window.onbeforeunload = function() {
+	webgazer.end()
+}
