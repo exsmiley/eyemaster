@@ -11,8 +11,7 @@
   },
   "default_locale": "en",
   "background": {
-    // "page": "src/bg/background.html",
-    "scripts": ["src/bg/webgazer.js", "src/bg/background.js"],
+    "page": "src/bg/background.html",
     "persistent": true
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
@@ -59,7 +58,7 @@
           "https://*/*"
       ],
       "js": [
-        // "src/webgazer.js",
+        "src/webgazer.js",
         "src/inject/inject.js"
       ]
     }
