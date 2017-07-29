@@ -12,6 +12,8 @@ chrome.extension.sendMessage({}, function(response) {
 	}, 10);
 });
 
+var hasLoaded = false;
+
 window.onload = function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
@@ -37,32 +39,30 @@ window.onload = function() {
         // video.height = height;
         // video.style.margin = '0px';
 
-        // webgazer.params.imgWidth = width;
-        // webgazer.params.imgHeight = height;
+        webgazer.params.imgWidth = width;
+        webgazer.params.imgHeight = height;
 
-        // var overlay = document.createElement('canvas');
-        // overlay.id = 'overlay';
-        // overlay.style.position = 'absolute';
-        // overlay.width = width;
-        // overlay.height = height;
-        // overlay.style.top = topDist;
-        // overlay.style.left = leftDist;
-        // overlay.style.margin = '0px';
+        var overlay = document.createElement('canvas');
+        overlay.id = 'overlay';
+        overlay.style.position = 'absolute';
+        overlay.width = width;
+        overlay.height = height;
+        overlay.style.top = topDist;
+        overlay.style.left = leftDist;
+        overlay.style.margin = '0px';
 
-        // document.body.appendChild(overlay);
+        document.body.appendChild(overlay);
 
-        // var cl = webgazer.getTracker().clm;
+        var cl = webgazer.getTracker().clm;
 
-        // function drawLoop() {
-        //     requestAnimFrame(drawLoop);
-        //     overlay.getContext('2d').clearRect(0,0,width,height);
-        //     if (cl.getCurrentPosition()) {
-        //         cl.draw(overlay);
-        //     }
-        //     console.log("derp")
-        // }
-        // drawLoop();
-        console.log('derp');
+        function drawLoop() {
+            requestAnimFrame(drawLoop);
+            overlay.getContext('2d').clearRect(0,0,width,height);
+            if (cl.getCurrentPosition()) {
+                cl.draw(overlay);
+            }
+        }
+        drawLoop();
     };
 
     function checkIfReady() {
@@ -74,3 +74,19 @@ window.onload = function() {
     }
     setTimeout(checkIfReady,100);
 };
+
+
+window.focus = function() {
+	if(hasLoaded) {
+		webgazer.resume()
+	}
+}
+
+window.onblur = function() {
+	hasLoaded = true;
+	webgazer.pause()
+}
+
+// window.onbeforeunload = function() {
+// 	webgazer.end()
+// }
