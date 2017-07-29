@@ -8125,6 +8125,7 @@ var mosseFilterResponses = function() {
      * @param eyesObj
      * @returns {*}
      */
+    webgazer.canBlink = true;
     webgazer.BlinkDetector.prototype.detectBlink = function(eyesObj) {
         if (!eyesObj) {
             return eyesObj;
@@ -8140,9 +8141,18 @@ var mosseFilterResponses = function() {
             return eyesObj;
         }
 
-        if (this.isBlink()) {
+        var isBlink = this.isBlink();
+
+        if (isBlink) {
             eyesObj.left.blink = true;
             eyesObj.right.blink = true;
+        }
+        if (isBlink && webgazer.canBlink) {
+          webgazer.onBlinkCallback();
+          setTimeout(function() {
+            webgazer.canBlink = true;
+          }, 1000);
+          webgazer.canBlink = false;
         }
 
         return eyesObj;
@@ -10972,6 +10982,11 @@ var mosseFilterResponses = function() {
         curTracker = curTrackerMap[name]();
         return webgazer;
     };
+
+    webgazer.setOnBlinkCallback = function(cb) {
+      webgazer.onBlinkCallback = cb;
+      return webgazer;
+    }
 
     /**
      * Sets the regression module and clears any other regression modules
