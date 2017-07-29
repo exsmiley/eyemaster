@@ -8,9 +8,16 @@
   <body>
     <p>Hi I should be under the quadrants!</p>
     <img src="cat_backandforth.gif"/>
-    <div class="quadrant top left"><p class="quadrant-text">One</p></div>
-    <div class="quadrant top right selected"><p class="quadrant-text">Two</p></div>
-    <div class="quadrant bottom left"><p class="quadrant-text">Three</p></div>
-    <div class="quadrant bottom right"><p class="quadrant-text">Four</p></div>
+    <div class="clear quadrant top left"><p class="quadrant-text">One</p></div>
+    <div class="clear quadrant top right selected"><p class="quadrant-text">Two</p></div>
+    <div class="clear quadrant bottom left"><p class="quadrant-text">Three</p></div>
+    <div class="clear quadrant bottom right"><p class="quadrant-text">Four</p></div>
   </body>
+  <script src="jquery-1.4.2.js"></script>
+  <script src="jquery.hotkeys.js"></script>
+  <script>
+  $(document).ready(function(){
+    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');}).bind('keyup','shift+4', function(){$('.quadrant').addClass('clear');});
+  })
+  </script>
 </html>
