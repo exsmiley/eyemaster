@@ -3,21 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-  <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
   </head>
   <body>
     <p>Hi I should be under the quadrants!</p>
     <img src="cat_backandforth.gif"/>
-    <div class="clear quadrant top left"><p class="quadrant-text">One</p></div>
-    <div class="clear quadrant top right selected"><p class="quadrant-text">Two</p></div>
-    <div class="clear quadrant bottom left"><p class="quadrant-text">Three</p></div>
-    <div class="clear quadrant bottom right"><p class="quadrant-text">Four</p></div>
+    <div class="clear quadrant top left"><p id="one" class="quadrant-text">One</p></div>
+    <div class="clear quadrant top right selected"><p id="two" class="quadrant-text">Two</p></div>
+    <div class="clear quadrant bottom left"><p id="three" class="quadrant-text">Three</p></div>
+    <div class="clear quadrant bottom right"><p id="four" class="quadrant-text">Four</p></div>
   </body>
   <script src="jquery-1.4.2.js"></script>
   <script src="jquery.hotkeys.js"></script>
+  <script src="script.js"></script>
   <script>
-  $(document).ready(function(){
-    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');}).bind('keyup','shift+4', function(){$('.quadrant').addClass('clear');});
-  })
   </script>
 </html>
