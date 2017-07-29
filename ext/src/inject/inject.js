@@ -39,6 +39,7 @@ window.addEventListener("load", function() {
             mouseDown = false;
             googleIt(selectedText);
           }
+        	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
