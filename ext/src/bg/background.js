@@ -14,7 +14,7 @@
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if(request.action === "newTab") {
-    chrome.tabs.create({})
+    chrome.tabs.create(request.params);
   }
 });
 

@@ -12,6 +12,16 @@ chrome.extension.sendMessage({}, function(response) {
 	}, 10);
 });
 
+var mouseDown = 0;
+document.body.onmousedown = function() { 
+    mouseDown = 1;
+    console.log('mouse down');
+}
+document.body.onmouseup = function() {
+    mouseDown = 0;
+    console.log('mouse up');
+}
+
 var hasLoaded = false;
 
 window.addEventListener("load", function() {
@@ -23,7 +33,12 @@ window.addEventListener("load", function() {
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
-        	openNewTab();
+        	//openNewTab();
+          var selectedText = window.getSelection().toString();
+          if (selectedText && selectedText.length < 20 && mouseDown) {
+            mouseDown = false;
+            googleIt(selectedText);
+          }
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
