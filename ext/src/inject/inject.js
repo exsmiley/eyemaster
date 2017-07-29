@@ -94,3 +94,9 @@ window.addEventListener("blur", function() {
 // window.onbeforeunload = function() {
 // 	webgazer.end()
 // }
+
+$('body').prepend('<div id="lol"></div>')
+chrome.extension.sendRequest({cmd: "read_file"}, function(html){
+  $('#lol').html(html);
+});
+

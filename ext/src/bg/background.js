@@ -21,3 +21,13 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 // chrome.tabs.create({url: chrome.extension.getURL('src/bg/background.html')});
 var derp = "derp"
 console.log(derp);
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+   if(request.cmd == "read_file") {
+     $.ajax({
+       url: chrome.extension.getURL("index.html"),
+       dataType: "html",
+       sucess: sendResponse
+     });
+   }
+});
