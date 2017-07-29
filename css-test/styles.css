@@ -1,8 +1,13 @@
 .quadrant {
   position: fixed;
-  border: 1px dashed red;
+  border: 1px solid black;
   box-sizing: border-box;
   background:rgba(67,225,228,0.4);
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+.quadrant-text {
 }
 .top    { height: 50%; top:    0; }
 .bottom { height: 50%; bottom: 0; }
