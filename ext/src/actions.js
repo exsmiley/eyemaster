@@ -1,4 +1,3 @@
 function openNewTab() {
-	// chrome.tabs.create({})
-	chrome.runtime.sendMessage("newTab");
+	chrome.runtime.sendMessage({"action": "newTab"});
 }
