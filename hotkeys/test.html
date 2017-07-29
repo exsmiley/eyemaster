@@ -1,0 +1,41 @@
+
+<html>
+    <head>
+        <style>
+            * {font-family: mono; font-size:0.95em}
+            .eventNotifier{width: 100px; float: left; color:navy; border: dotted 1px navy; padding: 4px; background-color:white; margin:3px}
+            .dirty{border: solid 1px #0ca2ff; color:white; background-color:#0ca2ff}
+            
+        </style>
+    </head>
+    <body>
+        <div id='input_01'> lol </div>
+    </body>
+    <script src="jquery-1.4.2.js"></script>
+    <script src="jquery.hotkeys.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(document).bind('keydown', 'shift+4', function(){$('#input_01').addClass('dirty');}).bind('keyup','shift+4', function(){$('#input_01').removeClass('dirty');});
+                //.bind('keyup', function () { alert (arguments); })
+
+        });
+        
+        function clickHandler(event){
+            log('binding ' + event.type + ' with(ctrl+l) to <b>table</b> applied on <b>#' + event.target.id + '</b>');
+            return false;          
+        }
+        
+        function unbindClick(){
+            $('table').unbind('click', clickHandler).unbind('keyup', 'ctrl+l', clickHandler);
+        }
+        
+        function unbindKeyup(){
+            $('table').unbind('keyup', 'ctrl+l', clickHandler);
+        }
+        
+        
+        function log(msg){
+            $('#logger').html(msg);
+        }
+    </script>
+</html>
