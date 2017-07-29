@@ -15,13 +15,13 @@ function ex(num){
   }
 }
 function onBlink() {
-  var selected = $(".selected").removeClass("selected")
-  if (selected.next() && selected.next().length) {
-    selected.next().addClass("selected")
+  var selected = $.find(".selected")[0].id;
+  $(".selected").removeClass("selected");
+  var index = selectedArray.indexOf(selected);
+  if (index == 3){
+    index = -1;
   }
-  else {
-    selected.siblings(":first").addClass("selected")
-  }
+  $('#' + selectedArray[index+1]).addClass('selected')
 }
 
 $(document).ready(function(){
@@ -29,7 +29,6 @@ $(document).ready(function(){
     .bind('keyup','shift+4', function(){
         $('.quadrant').addClass('clear');
         applyFuncBasedOnSelected([ex(1),ex(2),ex(3),ex(4)]);
-        
-    });
-    $(document).bind('keydown', 'right', function(){onBlink();});
+    })
+    .bind('keydown', 'shift+right', function(){onBlink();});
 })
