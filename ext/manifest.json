@@ -61,6 +61,7 @@
       ],
       "js": [
         "src/webgazer.js",
+        "src/actions.js",
         "src/inject/inject.js"
       ]
     }
