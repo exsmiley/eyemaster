@@ -28,6 +28,10 @@ var predictionsWindow = [];
 var predictionsWindowSize = 10;
 var predictionsWindowIndex = 0;
 
+Number.prototype.clamp = function(min, max) {
+  return Math.min(Math.max(this, min), max);
+};
+
 function getPredictionWindowAverage() {
   var x = 0;
   var y = 0;
@@ -39,8 +43,8 @@ function getPredictionWindowAverage() {
   }
 
   for (var i = 0; i < predictionsWindow.length; i += 1) {
-    x += predictionsWindow[i].x;
-    y += predictionsWindow[i].y;
+    x += predictionsWindow[i].x.clamp(0, window.innerWidth);
+    y += predictionsWindow[i].y.clamp(0, window.innerHeight);
   }
   return {"x": x/predictionsWindow.length, "y": y/predictionsWindow.length};
 }
@@ -59,16 +63,17 @@ window.addEventListener("load", function() {
            predictionsWindowIndex += 1;
          }
          predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
-         var sector = onBlinkOnPosition(getPredictionWindowAverage())
-         // TODO use sector in callback to set highlighted tile
+         var tile = onBlinkOnPosition(getPredictionWindowAverage())
+         // TODO use tile in callback to set highlighted tile
+         setSelected(tile)
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
-          var prediction = getPredictionWindowAverage();
-          if (prediction && prediction.x > 0 && prediction.y > 0) {
-            console.log(prediction.x + "    " + prediction.y);
-            onBlinkOnPosition(prediction);
-          }
+          // var prediction = getPredictionWindowAverage();
+          // if (prediction && prediction.x > 0 && prediction.y > 0) {
+          //   console.log(prediction.x + "    " + prediction.y);
+          //   onBlinkOnPosition(prediction);
+          // }
         	onBlink();
         	//openNewTab();
           var selectedText = window.getSelection().toString();
