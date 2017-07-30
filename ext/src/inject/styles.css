@@ -6,7 +6,7 @@
   display:flex;
   align-items: center;
   justify-content:center;
-  z-index: 100;
+  z-index: 1000000;
 }
 .quadrant-text {
   font-weight: bold;
@@ -20,4 +20,4 @@
 .bottom { height: 50%; bottom: 0; }
 .left   { width:  50%; left:   0; }
 .right  { width:  50%; right:  0; }
-.clear { opacity: 0;}
+.clear { display: none;}
