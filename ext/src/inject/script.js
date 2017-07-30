@@ -51,7 +51,6 @@ function onBlinkOnPosition(prediction) {
   }
   console.log("quadrant = " + quadrant);
   //funcs[quadrant - 1]();
->>>>>>> 47f71772e303bca52723a0203c4d740aa3aab25a
 }
 
 $(document).ready(function(){
