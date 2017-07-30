@@ -54,11 +54,20 @@ function onBlinkOnPosition(prediction) {
   //funcs[quadrant - 1]();
 }
 
+var cancel = false;
+function resetSelected(){
+    $('.selected').removeClass('selected');
+    $('#one').addClass('selected');
+}
 $(document).ready(function(){
-    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');})
+    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;})
     .bind('keyup','shift+4', function(){
         $('.quadrant').addClass('clear');
+        resetSelected();
+        if (!cancel){
         applyFuncBasedOnSelected(functionsArray);
+        }
     })
-    .bind('keydown', 'shift+right', function(){onBlink();});
+    .bind('keydown', 'shift+right', function(){onBlink();})
+    .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })
