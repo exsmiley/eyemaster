@@ -31,6 +31,27 @@ function nameQuadrants(namingArray){
     console.log(namingArray[i]);
     $('#' + selectedArray[i]).find('.quadrant-text').text(namingArray[i]);
   }
+
+//  1  |  2
+//  -------
+//  4  |  3
+function onBlinkOnPosition(prediction) {
+  var funcs = [openNewTab,duplicateTab,reloadTab,removeTab];
+  var x = prediction.x;
+  var y = prediction.y;
+  var quadrant = 0;
+  if (x < window.innerWidth / 2 && y < window.innerHeight / 2) {
+    quadrant = 1;
+  } else if (x >= window.innerWidth / 2 && y < window.innerHeight / 2) {
+    quadrant = 2;
+  } else if (x >= window.innerWidth / 2 && y >= window.innerHeight / 2) {
+    quadrant = 3;
+  } else if (x < window.innerWidth / 2 && y >= window.innerHeight / 2) {
+    quadrant = 4;
+  }
+  console.log("quadrant = " + quadrant);
+  //funcs[quadrant - 1]();
+>>>>>>> 47f71772e303bca52723a0203c4d740aa3aab25a
 }
 
 $(document).ready(function(){
