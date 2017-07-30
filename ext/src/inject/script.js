@@ -24,6 +24,22 @@ function onBlink() {
   $('#' + selectedArray[index+1]).addClass('selected')
 }
 
+function onBlinkOnPosition(prediction) {
+  var x = prediction.x;
+  var y = prediction.y;
+  var quadrant = 0;
+  if (x < window.innerWidth / 2 && y < window.innerHeight / 2) {
+    quadrant = 1;
+  } else if (x >= window.innerWidth / 2 && y < window.innerHeight / 2) {
+    quadrant = 2;
+  } else if (x < window.innerWidth / 2 && y >= window.innerHeight / 2) {
+    quadrant = 3;
+  } else if (x >= window.innerWidth / 2 && y >= window.innerHeight / 2) {
+    quadrant = 4;
+  }
+  console.log("quadrant = " + quadrant);
+}
+
 $(document).ready(function(){
     $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');})
     .bind('keyup','shift+4', function(){

@@ -32,8 +32,12 @@ window.addEventListener("load", function() {
          //   console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
          //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
         })
-        .setOnBlinkCallback(function() {
+        .setOnBlinkCallback(function(prediction) {
         	console.log("I see a blink!");
+          if (prediction && prediction.x > 0 && prediction.y > 0) {
+            console.log(prediction.x + "    " + prediction.y);
+            onBlinkOnPosition(prediction);
+          }
         	onBlink();
         	//openNewTab();
           var selectedText = window.getSelection().toString();
