@@ -2,7 +2,7 @@
   position: fixed;
   border: 1.5px solid black;
   box-sizing: border-box;
-  background:rgba(67,225,228,0.6);
+  background:rgba(234,237,236,0.6);
   display:flex;
   align-items: center;
   justify-content:center;
@@ -15,7 +15,7 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .selected {
-  background:rgba(67,225,228,.9);
+  background:rgba(234,237,236,0.98);
 }
 .top    { height: 50%; top:    0; }
 .bottom { height: 50%; bottom: 0; }
