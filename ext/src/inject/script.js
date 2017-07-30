@@ -1,6 +1,11 @@
 selectedArray = ["one", "two", "three", "four"];
 functionsArray = [openNewTab,duplicateTab,reloadTab,removeTab];
+socialArray = [facebook, yelp, twitter, linkedin];
+designArray = [figma, envision, framer, sketch]; 
 namingArray = ['New Tab', 'Duplicate Tab', 'Reload Tab', 'Remove Tab'];
+socialNamingArray = ['open Facebook', 'open Yelp', 'open Twitter', 'open Linkedin']
+designNamingArray = ['open Figma', 'open Envision', 'open Framer', 'open Sketch']
+
 function applyFuncBasedOnSelected(arrayOfFunc){
     var selected = $.find(".selected")[0].id;
     for (i = 0; i < 4; i++){
@@ -21,7 +26,7 @@ function ex(num){
   }
 }
 
-function trigger() {
+function trigger(funcarray) {
   // var selected = $.find(".selected")[0].id;
   // $(".selected").removeClass("selected");
   // var index = selectedArray.indexOf(selected);
@@ -31,7 +36,7 @@ function trigger() {
   // $('#' + selectedArray[index+1]).addClass('selected')
   if(menuUp && !cancel && !trainingMode) {
     console.log(menuUp)
-     applyFuncBasedOnSelected(functionsArray)
+     applyFuncBasedOnSelected(funcarray)
   }
  
 }
@@ -102,9 +107,19 @@ function resetSelected(){
     $('#one').addClass('selected');
 }
 $(document).ready(function(){
-    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
-    .bind('keyup','shift+4', function(){
-        trigger()
+    $(document).bind('keydown', 'Ctrl+a', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(namingArray);})
+    .bind('keyup','Ctrl+a', function(){
+        trigger(functionsArray)
     })
-    .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
+    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'Ctrl+s', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(socialNamingArray);})
+    .bind('keyup','Ctrl+s', function(){
+        trigger(socialArray)
+    })
+    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'Ctrl+d', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(designNamingArray);})
+    .bind('keyup','Ctrl+d', function(){
+        trigger(designArray)
+    })
+    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
 })
