@@ -101,19 +101,19 @@ function resetSelected(){
     $('#one').addClass('selected');
 }
 $(document).ready(function(){
-    $(document).bind('keydown', 'Ctrl+a', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(namingArray);})
-    .bind('keyup','Ctrl+a', function(){
+    $(document).bind('keydown', 'Alt+a', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(namingArray);})
+    .bind('keyup','Alt+a', function(){
         trigger(functionsArray)
     })
-    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
-    .bind('keydown', 'Ctrl+s', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(socialNamingArray);})
-    .bind('keyup','Ctrl+s', function(){
+    .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'Alt+s', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(socialNamingArray);})
+    .bind('keyup','Alt+s', function(){
         trigger(socialArray)
     })
-    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
-    .bind('keydown', 'Ctrl+d', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(designNamingArray);})
-    .bind('keyup','Ctrl+d', function(){
+    .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'Alt+d', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;nameQuadrants(designNamingArray);})
+    .bind('keyup','Alt+d', function(){
         trigger(designArray)
     })
-    .bind('keydown', 'Ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
 })
