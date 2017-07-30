@@ -13,7 +13,7 @@ function applyFuncBasedOnSelected(arrayOfFunc){
         return true
       }
   }
-  
+
 }
 function ex(num){
   return function f(){
@@ -42,7 +42,7 @@ function setSelected(num) {
       }
     $('#' + selectedArray[index]).addClass('selected')
   }
-  
+
 }
 
 function nameQuadrants(namingArray){
