@@ -65,8 +65,8 @@
         "src/jquery.hotkeys.js",
         "src/webgazer.js",
         "src/actions.js",
-        "src/inject/inject.js",
-        "src/inject/script.js"
+        "src/inject/script.js",
+        "src/inject/inject.js"
       ]
     }
   ]
