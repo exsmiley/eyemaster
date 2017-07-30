@@ -34,6 +34,7 @@ window.addEventListener("load", function() {
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
+        	onBlink();
         	//openNewTab();
           var selectedText = window.getSelection().toString();
           if (selectedText && selectedText.length < 20 && mouseDown) {
@@ -44,15 +45,6 @@ window.addEventListener("load", function() {
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
-
-    function checkIfReady() {
-        if (webgazer.isReady()) {
-            loadVideo();
-        } else {
-            setTimeout(checkIfReady, 100);
-        }
-    }
-    setTimeout(checkIfReady,100);
 }, false);
 
 

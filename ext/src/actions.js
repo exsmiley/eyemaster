@@ -26,7 +26,17 @@ function googleIt(selectedText) {
   chrome.runtime.sendMessage({"action": "googleIt", "url": url});
 }
 
-function loadVideo() {
+// only loads the video if webgazer is ready
+function loadVideo(func) {
+    if (webgazer.isReady()) {
+        loadVideoAction();
+    } else {
+        setTimeout(loadVideo, 100);
+    }
+}
+
+// actually performs the actions of loading the video
+function loadVideoActions() {
 	var width = 320;
     var height = 240;
     var topDist = '0px';
