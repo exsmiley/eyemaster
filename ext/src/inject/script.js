@@ -42,7 +42,13 @@ function trigger(funcarray) {
 }
 
 function onBlink() {
-  
+  var selected = $.find(".selected")[0].id;
+  $(".selected").removeClass("selected");
+  var index = selectedArray.indexOf(selected);
+  if (index == 3){
+    index = -1;
+  }
+  $('#' + selectedArray[index+1]).addClass('selected')
 }
 
 function setSelected(num) {
