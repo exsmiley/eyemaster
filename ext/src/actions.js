@@ -14,8 +14,11 @@ function removeTab() {
 	chrome.runtime.sendMessage({"action": "removeTab"})
 }
 
-function textToSpeech(text) {
-	chrome.runtime.sendMessage({"action": "say", "text": text})
+function textToSpeech(text, voiceName) {
+	if(!voiceName) {
+		voiceName = "Ralph"
+	}
+	chrome.runtime.sendMessage({"action": "say", "text": text, "voice": voiceName})
 }
 
 function googleIt(selectedText) {
