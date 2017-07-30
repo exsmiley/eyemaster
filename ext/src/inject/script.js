@@ -102,6 +102,7 @@ function closeMenu() {
 var cancel = false;
 var menuUp = false;
 var trainingMode = false;
+var videoLoaded = false;
 function resetSelected(){
     $('.selected').removeClass('selected');
     $('#one').addClass('selected');
@@ -122,5 +123,6 @@ $(document).ready(function(){
         trigger(designArray)
     })
     .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
-    .bind('keydown', 'esc', function(){blinkVersion = !blinkVersion;});
+    .bind('keydown', 'esc', function(){blinkVersion = !blinkVersion;})
+    .bind('keydown', 'Alt+Shift', function(){videoLoaded=true; if (!videoLoaded){}loadVideo()})
 })
