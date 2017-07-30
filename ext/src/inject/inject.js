@@ -24,6 +24,25 @@ document.body.addEventListener('mouseup', function() {
 });
 
 var hasLoaded = false;
+var predictionsWindow = [];
+var predictionsWindowSize = 10;
+var predictionsWindowIndex = 0;
+
+function getPredictionWindowAverage() {
+  if (predictionsWindow.length == 0) {
+    return {
+      "x": x,
+      "y": y
+    }
+  }
+  var x = 0;
+  var y = 0;
+  for (var i = 0; i < predictionsWindow.length; i += 1) {
+    x += predictionsWindow[i].x;
+    y += predictionsWindow[i].y;
+  }
+  return {"x": x/predictionsWindow.length, "y": y/predictionsWindow.length};
+}
 
 window.addEventListener("load", function() {
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
@@ -31,9 +50,18 @@ window.addEventListener("load", function() {
         .setGazeListener(function(data, clock) {
          //   console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
          //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+         if (predictionsWindow.length < predictionsWindowSize) {
+           predictionsWindow.push(data);
+           predictionsWindowIndex += 1;
+         } else {
+           predictionsWindow[predictionsWindowIndex] = data;
+           predictionsWindowIndex += 1;
+         }
+         predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
         })
-        .setOnBlinkCallback(function(prediction) {
+        .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
+          var prediction = getPredictionWindowAverage();
           if (prediction && prediction.x > 0 && prediction.y > 0) {
             console.log(prediction.x + "    " + prediction.y);
             onBlinkOnPosition(prediction);
