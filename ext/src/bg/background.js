@@ -33,11 +33,15 @@ var derp = "derp"
 console.log(derp);
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+   console.log('REQUQEST');
    if(request.cmd == "read_file") {
+     console.log(chrome.extension.getURL("index.html"));
      $.ajax({
        url: chrome.extension.getURL("index.html"),
        dataType: "html",
-       sucess: sendResponse
+       success: sendResponse
      });
+   console.log('REQUQEST');
    }
 });
+console.log('REQUQEST');

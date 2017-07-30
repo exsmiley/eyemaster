@@ -112,8 +112,14 @@ window.addEventListener("blur", function() {
 // 	webgazer.end()
 // }
 
-$('body').prepend('<div id="lol"></div>')
-chrome.extension.sendRequest({cmd: "read_file"}, function(html){
-  $('#lol').html(html);
+$(document).ready(function(){
+        $('body').prepend('<div id="lol"></div>');
+        console.log('inserted');
+        chrome.extension.sendRequest({cmd: "read_file"}, function(html){
+        console.log('inse');
+        $('#lol').html(html);
+        });
+        console.log('inse');
+       
 });
 
