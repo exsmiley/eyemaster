@@ -31,6 +31,7 @@ function nameQuadrants(namingArray){
     console.log(namingArray[i]);
     $('#' + selectedArray[i]).find('.quadrant-text').text(namingArray[i]);
   }
+}
 
 //  1  |  2
 //  -------
