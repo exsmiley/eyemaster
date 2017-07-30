@@ -38,7 +38,7 @@ function figma() {
 }
 
 function envision() {
-	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://invision.com"})
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://invisionapp.com"})
 }
 
 function framer() {
@@ -74,6 +74,7 @@ function loadVideo() {
 
 // actually performs the actions of loading the video
 function loadVideoAction() {
+	webgazer.showPredictionPoints(true);
 	var width = 320;
     var height = 240;
     var topDist = '0px';

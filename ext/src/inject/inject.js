@@ -24,7 +24,7 @@ document.body.addEventListener('mouseup', function() {
 });
 
 var hasLoaded = false;
-var blinkVersion = false;
+var blinkVersion = true;
 var predictionsWindow = [];
 var predictionsWindowSize = 10;
 var predictionsWindowIndex = 0;
