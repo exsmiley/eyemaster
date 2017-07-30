@@ -2,7 +2,6 @@ selectedArray = ["one", "two", "three", "four"];
 functionsArray = [openNewTab,duplicateTab,reloadTab,removeTab];
 namingArray = ['New Tab', 'Duplicate Tab', 'Reload Tab', 'Remove Tab'];
 function applyFuncBasedOnSelected(arrayOfFunc){
-  if(menuUp) {
     var selected = $.find(".selected")[0].id;
     for (i = 0; i < 4; i++){
       if (selectedArray[i] == selected){
@@ -13,7 +12,6 @@ function applyFuncBasedOnSelected(arrayOfFunc){
         func_to_execute();
         return true
       }
-    }
   }
   
 }
@@ -92,8 +90,7 @@ function resetSelected(){
 $(document).ready(function(){
     $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
     .bind('keyup','shift+4', function(){
-        // closeMenu()
+        closeMenu()
     })
-    .bind('keydown', 'shift+right', function(){onBlink();})
     .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })
