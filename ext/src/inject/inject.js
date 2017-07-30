@@ -65,7 +65,10 @@ window.addEventListener("load", function() {
          }
          predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
          var tile = onBlinkOnPosition(getPredictionWindowAverage())
-         setSelected(tile)
+         if(!blinkVersion) {
+         	setSelected(tile)
+         }
+         
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
@@ -81,7 +84,10 @@ window.addEventListener("load", function() {
             mouseDown = false;
             googleIt(selectedText);
           }
-          onBlink();
+          if(blinkVersion) {
+          	onBlink();
+          }
+          
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
