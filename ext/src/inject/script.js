@@ -2,7 +2,6 @@ selectedArray = ["one", "two", "three", "four"];
 functionsArray = [openNewTab,duplicateTab,reloadTab,removeTab];
 namingArray = ['New Tab', 'Duplicate Tab', 'Reload Tab', 'Remove Tab'];
 function applyFuncBasedOnSelected(arrayOfFunc){
-  if(menuUp) {
     var selected = $.find(".selected")[0].id;
     for (i = 0; i < 4; i++){
       if (selectedArray[i] == selected){
@@ -13,7 +12,6 @@ function applyFuncBasedOnSelected(arrayOfFunc){
         func_to_execute();
         return true
       }
-    }
   }
 
 }
@@ -90,10 +88,9 @@ function resetSelected(){
     $('#one').addClass('selected');
 }
 $(document).ready(function(){
-    $(document).bind('keydown', 'ctrl', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
-    .bind('keyup','ctrl', function(){
-        // closeMenu()
+    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
+    .bind('keyup','shift+4', function(){
+        closeMenu()
     })
-    .bind('keydown', 'ctrl+right', function(){onBlink();})
-    .bind('keydown', 'ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
+    .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })
