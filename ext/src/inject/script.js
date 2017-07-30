@@ -29,8 +29,11 @@ function onBlink() {
   //   index = -1;
   // }
   // $('#' + selectedArray[index+1]).addClass('selected')
-  console.log(menuUp)
-  applyFuncBasedOnSelected(functionsArray)
+  if(menuUp) {
+    console.log(menuUp)
+     applyFuncBasedOnSelected(functionsArray)
+  }
+ 
 }
 
 function setSelected(num) {
@@ -76,9 +79,9 @@ function onBlinkOnPosition(prediction) {
 function closeMenu() {
   $('.quadrant').addClass('clear');
         resetSelected();
-        if (!cancel){
-        applyFuncBasedOnSelected(functionsArray);
-        }
+        // if (!cancel){
+        // applyFuncBasedOnSelected(functionsArray);
+        // }
 }
 
 var cancel = false;

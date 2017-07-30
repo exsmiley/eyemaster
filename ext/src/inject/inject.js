@@ -64,7 +64,6 @@ window.addEventListener("load", function() {
          }
          predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
          var tile = onBlinkOnPosition(getPredictionWindowAverage())
-         // TODO use tile in callback to set highlighted tile
          setSelected(tile)
         })
         .setOnBlinkCallback(function() {
@@ -74,13 +73,14 @@ window.addEventListener("load", function() {
           //   console.log(prediction.x + "    " + prediction.y);
           //   onBlinkOnPosition(prediction);
           // }
-        	onBlink();
         	//openNewTab();
           var selectedText = window.getSelection().toString();
-          if (selectedText && selectedText.length < 20 && mouseDown) {
+          // console.log(selectedText && mouseDown && true)
+          if (selectedText && mouseDown) {
             mouseDown = false;
             googleIt(selectedText);
           }
+          onBlink();
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
