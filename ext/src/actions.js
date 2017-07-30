@@ -1,3 +1,4 @@
+// tab functions
 function openNewTab() {
 	chrome.runtime.sendMessage({"action": "newTab"});
 }
@@ -14,6 +15,41 @@ function removeTab() {
 	chrome.runtime.sendMessage({"action": "removeTab"})
 }
 
+// social media links
+function facebook() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://facebook.com"})
+}
+
+function yelp() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://yelp.com"})
+}
+
+function twitter() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://twitter.com"})
+}
+
+function linkedin() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://linkedin.com"})
+}
+
+// design tools
+function figma() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://figma.com"})
+}
+
+function envision() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://envision.com"})
+}
+
+function framer() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://framer.com"})
+}
+
+function sketch() {
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://sketch.com"})
+}
+
+// other places
 function textToSpeech(text, voiceName) {
 	if(!voiceName) {
 		voiceName = "Ralph"
@@ -23,7 +59,7 @@ function textToSpeech(text, voiceName) {
 
 function googleIt(selectedText) {
   var url = "https://www.google.com/search?q=" + selectedText;
-  chrome.runtime.sendMessage({"action": "googleIt", "url": url});
+  chrome.runtime.sendMessage({"action": "loadPage", "url": url});
 }
 
 // only loads the video if webgazer is ready

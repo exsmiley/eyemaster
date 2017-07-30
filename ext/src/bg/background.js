@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         chrome.tabs.remove(sender.tab.id);
     } else if(request.action === "say") {
         chrome.tts.speak(request.text, {"voiceName": request.voice});
-    } else if(request.action == "googleIt") {
+    } else if(request.action == "loadPage") {
         chrome.tabs.create({"url": request.url});
     }
 });
