@@ -8153,7 +8153,7 @@ var mosseFilterResponses = function() {
             }
             setTimeout(function() {
                 webgazer.canBlink = true;
-            }, 1000);
+            }, 500);
             webgazer.canBlink = false;
         }
 
