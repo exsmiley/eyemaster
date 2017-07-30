@@ -30,13 +30,14 @@ function googleIt(selectedText) {
 function loadVideo(func) {
     if (webgazer.isReady()) {
         loadVideoAction();
+        console.log('loaded video...')
     } else {
         setTimeout(loadVideo, 100);
     }
 }
 
 // actually performs the actions of loading the video
-function loadVideoActions() {
+function loadVideoAction() {
 	var width = 320;
     var height = 240;
     var topDist = '0px';

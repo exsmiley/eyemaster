@@ -10740,11 +10740,11 @@ var mosseFilterResponses = function() {
      * Loads the global data and passes it to the regression model
      */
     function loadGlobalData() {
-        chrome.storage.local.get("data", function(items) {
-            for (var reg in regs) {
-                regs[reg].setData(items.data);
-            }
-        });       
+        // chrome.storage.local.get("data", function(items) {
+        //     for (var reg in regs) {
+        //         regs[reg].setData(items.data);
+        //     }
+        // });       
     }
 
    /**
@@ -10755,9 +10755,7 @@ var mosseFilterResponses = function() {
             // 'settings': settings,
             'data': regs[0].getData() || data
         };
-        console.log(storage['data'][0]);
 
-        window.localStorage.setItem(localstorageLabel, JSON.stringify(storage));
         chrome.storage.local.set(storage, function() {
           console.log('Settings saved');
         });
