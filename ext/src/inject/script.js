@@ -28,7 +28,7 @@ $(document).ready(function(){
     $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');})
     .bind('keyup','shift+4', function(){
         $('.quadrant').addClass('clear');
-        applyFuncBasedOnSelected([ex(1),ex(2),ex(3),ex(4)]);
+        applyFuncBasedOnSelected([openNewTab,duplicateTab,reloadTab,removeTab]);
     })
     .bind('keydown', 'shift+right', function(){onBlink();});
 })
