@@ -122,4 +122,5 @@ $(document).ready(function(){
         trigger(designArray)
     })
     .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
+    .bind('keydown', 'esc', function(){blinkVersion = !blinkVersion;});
 })
