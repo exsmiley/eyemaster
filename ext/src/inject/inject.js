@@ -64,11 +64,11 @@ window.addEventListener("blur", function() {
 // }
 
 $(document).ready(function(){
-        $('body').prepend('<div id="lol"></div>');
+        $('body').prepend('<div id="wrapper-eyemaster"></div>');
         console.log('inserted');
         chrome.extension.sendRequest({cmd: "read_file"}, function(html){
         console.log('inse');
-        $('#lol').html(html);
+        $('#wrapper-eyemaster').prepend(html);
         });
         console.log('inse');
        
