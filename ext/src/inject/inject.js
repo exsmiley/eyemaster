@@ -102,12 +102,10 @@ window.addEventListener("blur", function() {
 
 $(document).ready(function(){
         $('body').prepend('<div id="wrapper-eyemaster"></div>');
-        console.log('inserted');
         chrome.extension.sendRequest({cmd: "read_file"}, function(html){
-        console.log('inse');
-        $('#wrapper-eyemaster').prepend(html);
+          $('#wrapper-eyemaster').prepend(html);
+          nameQuadrants(namingArray);
         });
-        console.log('inse');
        
 });
 
