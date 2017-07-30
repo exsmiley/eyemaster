@@ -29,7 +29,7 @@ function onBlink() {
   //   index = -1;
   // }
   // $('#' + selectedArray[index+1]).addClass('selected')
-  if(menuUp) {
+  if(menuUp && !cancel && !trainingMode) {
     console.log(menuUp)
      applyFuncBasedOnSelected(functionsArray)
   }
@@ -86,6 +86,7 @@ function closeMenu() {
 
 var cancel = false;
 var menuUp = false;
+var trainingMode = false;
 function resetSelected(){
     $('.selected').removeClass('selected');
     $('#one').addClass('selected');
@@ -93,7 +94,7 @@ function resetSelected(){
 $(document).ready(function(){
     $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
     .bind('keyup','shift+4', function(){
-        closeMenu()
+        onBlink()
     })
     .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })

@@ -80,7 +80,7 @@ window.addEventListener("load", function() {
             mouseDown = false;
             googleIt(selectedText);
           }
-          onBlink();
+          // onBlink();
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
