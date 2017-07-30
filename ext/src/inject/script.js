@@ -15,7 +15,7 @@ function applyFuncBasedOnSelected(arrayOfFunc){
       }
     }
   }
-  
+
 }
 function ex(num){
   return function f(){
@@ -44,7 +44,7 @@ function setSelected(num) {
       }
     $('#' + selectedArray[index]).addClass('selected')
   }
-  
+
 }
 
 function nameQuadrants(namingArray){
@@ -90,10 +90,10 @@ function resetSelected(){
     $('#one').addClass('selected');
 }
 $(document).ready(function(){
-    $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
-    .bind('keyup','shift+4', function(){
+    $(document).bind('keydown', 'ctrl', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
+    .bind('keyup','ctrl', function(){
         // closeMenu()
     })
-    .bind('keydown', 'shift+right', function(){onBlink();})
-    .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
+    .bind('keydown', 'ctrl+right', function(){onBlink();})
+    .bind('keydown', 'ctrl+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })
