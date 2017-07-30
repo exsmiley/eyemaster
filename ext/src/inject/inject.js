@@ -118,7 +118,7 @@ $(document).ready(function(){
         console.log('inserted');
         chrome.extension.sendRequest({cmd: "read_file"}, function(html){
         console.log('inse');
-        $('#lol').html(html);
+        $('#lol').prepend(html);
         });
         console.log('inse');
        
