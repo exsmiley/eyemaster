@@ -24,6 +24,7 @@ document.body.addEventListener('mouseup', function() {
 });
 
 var hasLoaded = false;
+var blinkVersion = false;
 var predictionsWindow = [];
 var predictionsWindowSize = 10;
 var predictionsWindowIndex = 0;
@@ -80,7 +81,7 @@ window.addEventListener("load", function() {
             mouseDown = false;
             googleIt(selectedText);
           }
-          // onBlink();
+          onBlink();
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()

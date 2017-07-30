@@ -21,7 +21,7 @@ function ex(num){
   }
 }
 
-function onBlink() {
+function trigger() {
   // var selected = $.find(".selected")[0].id;
   // $(".selected").removeClass("selected");
   // var index = selectedArray.indexOf(selected);
@@ -34,6 +34,10 @@ function onBlink() {
      applyFuncBasedOnSelected(functionsArray)
   }
  
+}
+
+function onBlink() {
+  
 }
 
 function setSelected(num) {
@@ -94,7 +98,7 @@ function resetSelected(){
 $(document).ready(function(){
     $(document).bind('keydown', 'shift+4', function(){$('.quadrant').removeClass('clear');cancel=false;menuUp = true;})
     .bind('keyup','shift+4', function(){
-        onBlink()
+        trigger()
     })
     .bind('keydown', 'shift+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();});
 })
