@@ -10822,6 +10822,8 @@ var mosseFilterResponses = function() {
         onFail = onFail || function() {console.log('No stream')};
 
         if (debugVideoLoc) {
+            console.log('something')
+            console.log(debugVideoLoc)
             init(debugVideoLoc);
             return webgazer;
         }

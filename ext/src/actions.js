@@ -27,7 +27,7 @@ function googleIt(selectedText) {
 }
 
 // only loads the video if webgazer is ready
-function loadVideo(func) {
+function loadVideo() {
     if (webgazer.isReady()) {
         loadVideoAction();
         console.log('loaded video...')

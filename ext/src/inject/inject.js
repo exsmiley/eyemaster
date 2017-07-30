@@ -29,14 +29,15 @@ var predictionsWindowSize = 10;
 var predictionsWindowIndex = 0;
 
 function getPredictionWindowAverage() {
+  var x = 0;
+  var y = 0;
   if (predictionsWindow.length == 0) {
     return {
       "x": x,
       "y": y
     }
   }
-  var x = 0;
-  var y = 0;
+
   for (var i = 0; i < predictionsWindow.length; i += 1) {
     x += predictionsWindow[i].x;
     y += predictionsWindow[i].y;
@@ -50,14 +51,16 @@ window.addEventListener("load", function() {
         .setGazeListener(function(data, clock) {
          //   console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
          //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
-         if (predictionsWindow.length < predictionsWindowSize) {
+         if (predictionsWindow.length < predictionsWindowSize && data) {
            predictionsWindow.push(data);
            predictionsWindowIndex += 1;
-         } else {
+         } else if(data) {
            predictionsWindow[predictionsWindowIndex] = data;
            predictionsWindowIndex += 1;
          }
          predictionsWindowIndex = predictionsWindowIndex % predictionsWindowSize;
+         var sector = onBlinkOnPosition(getPredictionWindowAverage())
+         // TODO use sector in callback to set highlighted tile
         })
         .setOnBlinkCallback(function() {
         	console.log("I see a blink!");
@@ -76,7 +79,9 @@ window.addEventListener("load", function() {
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
-        .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
+        .showPredictionPoints(true);
+
+        loadVideo() /* shows a square every 100 milliseconds where current prediction is */
 }, false);
 
 
