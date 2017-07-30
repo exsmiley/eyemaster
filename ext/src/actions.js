@@ -38,7 +38,7 @@ function figma() {
 }
 
 function envision() {
-	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://envision.com"})
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://invision.com"})
 }
 
 function framer() {
@@ -46,7 +46,7 @@ function framer() {
 }
 
 function sketch() {
-	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://sketch.com"})
+	chrome.runtime.sendMessage({"action": "loadPage", "url": "https://sketchapp.com"})
 }
 
 // other places
@@ -112,5 +112,5 @@ function loadVideoAction() {
         }
     }
     drawLoop();
-    textToSpeech("Face. AWAKEN!", "Bad News")
+    textToSpeech("Face. AWAKEN!", "Zarvox")
 };

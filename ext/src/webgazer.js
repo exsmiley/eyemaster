@@ -10741,11 +10741,11 @@ var mosseFilterResponses = function() {
      * Loads the global data and passes it to the regression model
      */
     function loadGlobalData() {
-        // chrome.storage.local.get("data", function(items) {
-        //     for (var reg in regs) {
-        //         regs[reg].setData(items.data);
-        //     }
-        // });       
+        chrome.storage.local.get("data", function(items) {
+            for (var reg in regs) {
+                regs[reg].setData(items.data);
+            }
+        });       
     }
 
    /**
@@ -10757,9 +10757,9 @@ var mosseFilterResponses = function() {
             'data': regs[0].getData() || data
         };
 
-        chrome.storage.local.set(storage, function() {
-          console.log('Settings saved');
-        });
+        // chrome.storage.local.set(storage, function() {
+        //   alert('Settings saved');
+        // });
 
         //TODO data should probably be stored in webgazer object instead of each regression model
         //     -> requires duplication of data, but is likely easier on regression model implementors

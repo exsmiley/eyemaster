@@ -4,7 +4,7 @@ socialArray = [facebook, yelp, twitter, linkedin];
 designArray = [figma, envision, framer, sketch]; 
 namingArray = ['New Tab', 'Duplicate Tab', 'Reload Tab', 'Remove Tab'];
 socialNamingArray = ['open Facebook', 'open Yelp', 'open Twitter', 'open Linkedin']
-designNamingArray = ['open Figma', 'open Envision', 'open Framer', 'open Sketch']
+designNamingArray = ['open Figma', 'open Invision', 'open Framer', 'open Sketch']
 
 function applyFuncBasedOnSelected(arrayOfFunc){
     var selected = $.find(".selected")[0].id;
@@ -124,5 +124,5 @@ $(document).ready(function(){
     })
     .bind('keydown', 'Alt+space', function(){cancel=true;$('.quadrant').addClass('clear');resetSelected();})
     .bind('keydown', 'esc', function(){blinkVersion = !blinkVersion;})
-    .bind('keydown', 'Alt+Shift', function(){videoLoaded=true; if (!videoLoaded){}loadVideo()})
+    .bind('keydown', 'Alt+Shift', function(){if (!videoLoaded){loadVideo()} videoLoaded=true; })
 })

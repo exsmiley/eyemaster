@@ -91,9 +91,9 @@ window.addEventListener("load", function() {
         	// textToSpeech("I am google and I can see into your soul!");
         })
         .begin()
-        .showPredictionPoints(true);
+        // .showPredictionPoints(true);
 
-        loadVideo() /* shows a square every 100 milliseconds where current prediction is */
+        // loadVideo() /* shows a square every 100 milliseconds where current prediction is */
 }, false);
 
 
