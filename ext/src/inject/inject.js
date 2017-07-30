@@ -51,14 +51,14 @@ window.addEventListener("load", function() {
     var leftDist = '0px';
     
     var setup = function() {
-        // var video = document.getElementById('webgazerVideoFeed');
-        // video.style.display = 'block';
-        // video.style.position = 'absolute';
-        // video.style.top = topDist;
-        // video.style.left = leftDist;
-        // video.width = width;
-        // video.height = height;
-        // video.style.margin = '0px';
+        var video = document.getElementById('webgazerVideoFeed');
+        video.style.display = 'block';
+        video.style.position = 'absolute';
+        video.style.top = topDist;
+        video.style.left = leftDist;
+        video.width = width;
+        video.height = height;
+        video.style.margin = '0px';
 
         webgazer.params.imgWidth = width;
         webgazer.params.imgHeight = height;
@@ -84,6 +84,7 @@ window.addEventListener("load", function() {
             }
         }
         drawLoop();
+        textToSpeech("Face. AWAKEN!", "Bad News")
     };
 
     function checkIfReady() {
@@ -123,3 +124,6 @@ $(document).ready(function(){
        
 });
 
+window.onbeforeunload = function() {
+	webgazer.end()
+}

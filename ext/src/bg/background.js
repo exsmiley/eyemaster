@@ -22,7 +22,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     } else if(request.action === "removeTab") {
         chrome.tabs.remove(sender.tab.id);
     } else if(request.action === "say") {
-        chrome.tts.speak(request.text);
+        chrome.tts.speak(request.text, {"voiceName": request.voice});
     } else if(request.action == "googleIt") {
         chrome.tabs.create({"url": request.url});
     }
