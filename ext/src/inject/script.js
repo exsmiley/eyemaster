@@ -24,7 +24,11 @@ function onBlink() {
   $('#' + selectedArray[index+1]).addClass('selected')
 }
 
+//  1  |  2
+//  -------
+//  4  |  3
 function onBlinkOnPosition(prediction) {
+  var funcs = [openNewTab,duplicateTab,reloadTab,removeTab];
   var x = prediction.x;
   var y = prediction.y;
   var quadrant = 0;
@@ -32,12 +36,13 @@ function onBlinkOnPosition(prediction) {
     quadrant = 1;
   } else if (x >= window.innerWidth / 2 && y < window.innerHeight / 2) {
     quadrant = 2;
-  } else if (x < window.innerWidth / 2 && y >= window.innerHeight / 2) {
-    quadrant = 3;
   } else if (x >= window.innerWidth / 2 && y >= window.innerHeight / 2) {
+    quadrant = 3;
+  } else if (x < window.innerWidth / 2 && y >= window.innerHeight / 2) {
     quadrant = 4;
   }
   console.log("quadrant = " + quadrant);
+  //funcs[quadrant - 1]();
 }
 
 $(document).ready(function(){

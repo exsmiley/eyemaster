@@ -8149,7 +8149,8 @@ var mosseFilterResponses = function() {
         }
         if (isBlink && webgazer.canBlink) {
             if(webgazer.onBlinkCallback) {
-                webgazer.onBlinkCallback(webgazer.getCurrentPrediction());
+                //webgazer.onBlinkCallback(webgazer.getCurrentPrediction());
+                webgazer.onBlinkCallback();
             }
             setTimeout(function() {
                 webgazer.canBlink = true;
