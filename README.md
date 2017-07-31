@@ -25,6 +25,8 @@ Eyemaster can be used by cloning the repo, turning on developer mode for Chrome 
 
  **Many thanks to [WebGazer](https://github.com/brownhci/WebGazer) for exposing the webgazing and blink detection capabilities!**
 
+**Also thanks to Graylock Hackfest for giving us an environment to create this idea**
+
  And an example of the scary face that will forever haunt us:
 
  ![](scaryface.png?raw=true)
